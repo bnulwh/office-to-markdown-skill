@@ -311,8 +311,20 @@ def _find_heuristic_title(slide, slide_height: int) -> tuple:
         return int(sz) * 12700  # hundredths of a point -> EMU
 
     def _is_numeric(text: str) -> bool:
-        """Check if text is a pure number / data point (not a real title)."""
-        return bool(_NUMERIC_RE.match(text))
+        """Check if text is a data point / statistic rather than a real title.
+
+        Catches pure numbers ("123", "1,000") as well as short text with a
+        high proportion of Arabic digits ("≈2000+条", "8月-9月", "47+").
+        """
+        # Pure numeric pattern (original check)
+        if _NUMERIC_RE.match(text):
+            return True
+        # Digit-ratio heuristic: short text where ≥30 % of chars are digits
+        if len(text) <= 20:
+            digit_count = sum(1 for c in text if c.isdigit())
+            if digit_count > 0 and digit_count / len(text) >= 0.3:
+                return True
+        return False
 
     def _collect_candidates(top_limit: float) -> list:
         candidates = []
@@ -351,7 +363,19 @@ def _find_heuristic_title(slide, slide_height: int) -> tuple:
     if not candidates:
         return ("", None)
 
-    # Pick best: largest font, then highest position
+    # Pick best: largest font, then highest position.
+    # However, when multiple candidates share the max font size they are
+    # likely infographic data-points (e.g. "7个", "≈2000+条") rather than
+    # the real title.  In that case drop to the next font-size tier.
+    max_sz = max(c[2] for c in candidates)
+    max_count = sum(1 for c in candidates if c[2] == max_sz)
+    if max_count > 1:
+        # Keep only candidates with a strictly smaller font size
+        smaller = [c for c in candidates if c[2] < max_sz]
+        if smaller:
+            candidates = smaller
+        # else: all candidates share the same size — keep them all
+
     candidates.sort(key=lambda c: (-c[2], c[3]))
     best = candidates[0]
     return (best[1], id(best[0]))
