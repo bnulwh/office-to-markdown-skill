@@ -283,7 +283,7 @@ def _find_heuristic_title(slide, slide_height: int) -> tuple:
     Ties broken by highest position (smallest top).
     Fallback: if nothing found in top half, search entire slide.
 
-    Returns (title_text, shape_id) or ("", None).
+    Returns (title_text, shape) or ("", None).
     """
     MAX_TEXT_LEN = 60
     TOP_THRESHOLD = slide_height * 0.50  # top half of slide
@@ -378,7 +378,7 @@ def _find_heuristic_title(slide, slide_height: int) -> tuple:
 
     candidates.sort(key=lambda c: (-c[2], c[3]))
     best = candidates[0]
-    return (best[1], id(best[0]))
+    return (best[1], best[0])
 
 
 def _get_bullet_prefix(p_el, level: int) -> str:
@@ -513,7 +513,7 @@ def _process_slide(slide, slide_num: int, total: int, slide_height: int = 685800
 
     # --- Title: pick the highest-priority title placeholder ---
     title_text = ""
-    title_shape_id = None
+    title_shape = None          # strong ref prevents id() collision via GC
     best_priority = 99
     subtitle_parts = []
 
@@ -528,7 +528,7 @@ def _process_slide(slide, slide_num: int, total: int, slide_height: int = 685800
                 if title_text:
                     subtitle_parts.append(title_text)
                 title_text = t
-                title_shape_id = id(shape)
+                title_shape = shape
                 best_priority = prio
             else:
                 # This is a lower-priority title (e.g. subtitle)
@@ -536,14 +536,14 @@ def _process_slide(slide, slide_num: int, total: int, slide_height: int = 685800
 
     # Fallback: heuristic title detection for PPTs without placeholders
     if not title_text:
-        title_text, title_shape_id = _find_heuristic_title(slide, slide_height)
+        title_text, title_shape = _find_heuristic_title(slide, slide_height)
 
     # --- Content shapes (sorted by position) ---
     content_parts = []
     tables_seen = set()
 
     for shape in _sorted_content_shapes(slide):
-        if id(shape) == title_shape_id:
+        if shape is title_shape:
             continue
         # Skip other title/subtitle placeholders (already handled)
         if _is_title_placeholder(shape):
