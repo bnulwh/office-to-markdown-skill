@@ -37,6 +37,111 @@ python scripts/xlsx2md.py input.xlsx -o output.md
 
 Scripts are at `scripts/` relative to this skill's directory.
 
+## Usage
+
+### Installation
+
+```bash
+# Install via skills CLI (recommended)
+npx skills add bnulwh/office-to-markdown-skill
+
+# Or clone the repository
+git clone https://github.com/bnulwh/office-to-markdown-skill.git
+
+# Install Python dependencies
+pip install python-pptx python-docx openpyxl
+```
+
+### Command-Line Options
+
+All converters support the same interface:
+
+```bash
+python scripts/office2md.py <input> [-o <output>]
+```
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `input` | Input file path (.pptx, .docx, .xlsx) | Required |
+| `-o, --output` | Output Markdown file path | `<input>.md` |
+
+### Examples
+
+**Convert a PowerPoint presentation:**
+
+```bash
+# Output to presentation.md (same directory as input)
+python scripts/office2md.py slides.pptx
+
+# Specify output path
+python scripts/office2md.py slides.pptx -o output/slides.md
+```
+
+**Convert a Word document:**
+
+```bash
+python scripts/office2md.py report.docx -o report.md
+```
+
+**Convert an Excel spreadsheet:**
+
+```bash
+# All sheets are converted
+python scripts/office2md.py data.xlsx -o data.md
+```
+
+**Use individual converters directly:**
+
+```bash
+# PowerPoint only
+python scripts/pptx2md.py presentation.pptx -o output.md
+
+# Word only
+python scripts/docx2md.py document.docx -o output.md
+
+# Excel only
+python scripts/xlsx2md.py spreadsheet.xlsx -o output.md
+```
+
+### Python Module Usage
+
+Import converters as Python modules for programmatic use:
+
+```python
+import sys
+sys.path.insert(0, 'path/to/skill/scripts')
+
+from office2md import convert
+
+# Auto-detect format and convert
+convert("input.pptx", "output.md")
+convert("input.docx", "output.md")
+convert("input.xlsx", "output.md")
+
+# Or use individual converters
+from pptx2md import convert as pptx_convert
+from docx2md import convert as docx_convert
+from xlsx2md import convert as xlsx_convert
+
+pptx_convert("slides.pptx", "slides.md")
+```
+
+### Batch Conversion
+
+Convert multiple files using a shell loop:
+
+```bash
+# Bash/Linux/macOS
+for file in *.pptx; do
+    python scripts/office2md.py "$file" -o "output/${file%.pptx}.md"
+done
+
+# Windows PowerShell
+Get-ChildItem *.pptx | ForEach-Object {
+    python scripts/office2md.py $_.FullName -o "output\$($_.BaseName).md"
+}
+```
+
 ## Supported Formats
 
 | Format | Extension | Converter | Key Features |
@@ -99,32 +204,9 @@ All three converters produce HTML `<table>` elements to support merged cells:
 - **Word**: Uses `_tc` element identity to detect vertical merges + `gridSpan` for horizontal merges
 - **Excel**: Reads `merged_cells.ranges` from openpyxl to compute rowspan/colspan
 
-### Module Usage
-
-Each converter can be imported as a Python module:
-
-```python
-from pptx2md import convert as pptx_convert
-from docx2md import convert as docx_convert
-from xlsx2md import convert as xlsx_convert
-
-# Or use the unified entry point
-from office2md import convert
-convert("input.pptx", "output.md")
-```
-
 ## Pitfalls
 
 - **PowerPoint**: Images/charts not extracted. SmartArt text is extracted but visual structure is lost. Heuristic title detection may not work for all custom templates.
 - **Word**: Nested tables are flattened to text. Headers/footers not included. Images not extracted.
 - **Excel**: Only cell values and basic formatting (bold/italic) are converted. Formulas, charts, images, conditional formatting, and data validation are not preserved. Large spreads may produce very wide Markdown tables.
 - **All formats**: Password-protected files are not supported.
-
-## Dependencies
-
-- Python 3.10+
-- `python-pptx` (for PowerPoint)
-- `python-docx` (for Word)
-- `openpyxl` (for Excel)
-
-Install all: `pip install python-pptx python-docx openpyxl`
