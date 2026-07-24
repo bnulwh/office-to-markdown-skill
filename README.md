@@ -1,5 +1,7 @@
 # Office to Markdown
 
+[中文文档](README_CN.md)
+
 Convert Office files (.pptx, .docx, .xlsx) to well-structured Markdown.
 
 ## Features
