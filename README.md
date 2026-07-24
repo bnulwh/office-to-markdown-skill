@@ -1,6 +1,8 @@
 # Office to Markdown
 
 [![skills.sh](https://skills.sh/b/bnulwh/office-to-markdown-skill)](https://skills.sh/bnulwh/office-to-markdown-skill)
+![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 [中文文档](README_CN.md)
 
