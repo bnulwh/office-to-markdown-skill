@@ -1,5 +1,7 @@
 # Office 转 Markdown
 
+[![skills.sh](https://skills.sh/b/bnulwh/office-to-markdown-skill)](https://skills.sh/bnulwh/office-to-markdown-skill)
+
 将 Office 文件（.pptx、.docx、.xlsx）转换为结构清晰的 Markdown。
 
 ## 功能特性
@@ -130,6 +132,16 @@ convert("input.xlsx", "output.md")
 <table>
   ...
 </table>
+```
+
+## 安装
+
+```bash
+# 通过 skills CLI 安装（推荐）
+npx skills add bnulwh/office-to-markdown-skill
+
+# 或直接克隆仓库
+git clone https://github.com/bnulwh/office-to-markdown-skill.git
 ```
 
 ## 环境要求

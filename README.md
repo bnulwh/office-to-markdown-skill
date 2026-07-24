@@ -1,5 +1,7 @@
 # Office to Markdown
 
+[![skills.sh](https://skills.sh/b/bnulwh/office-to-markdown-skill)](https://skills.sh/bnulwh/office-to-markdown-skill)
+
 [中文文档](README_CN.md)
 
 Convert Office files (.pptx, .docx, .xlsx) to well-structured Markdown.
@@ -132,6 +134,16 @@ Each worksheet becomes a `##` section with an HTML table:
 <table>
   ...
 </table>
+```
+
+## Install
+
+```bash
+# Via skills CLI (recommended)
+npx skills add bnulwh/office-to-markdown-skill
+
+# Or clone and use directly
+git clone https://github.com/bnulwh/office-to-markdown-skill.git
 ```
 
 ## Requirements
