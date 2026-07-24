@@ -243,6 +243,36 @@ pip install python-pptx python-docx openpyxl
 - Excel formulas are not evaluated (only cached values)
 - Complex nested tables may be flattened
 
+## Roadmap
+
+### Phase 1: Core Improvements (Near-term)
+
+- [ ] Image extraction with optional OCR for embedded screenshots
+- [ ] Excel formula evaluation support via optional engine
+- [ ] Nested table support for Word documents
+- [ ] Header/footer extraction for Word documents
+- [ ] Configurable output format options (e.g., Markdown flavor, table style)
+
+### Phase 2: Enhanced Features (Mid-term)
+
+- [ ] Chart-to-Markdown conversion (bar, line, pie charts as text descriptions or Mermaid diagrams)
+- [ ] SmartArt text structure preservation
+- [ ] Batch conversion with progress bar and summary report
+- [ ] Watch mode: auto-convert files when they change
+- [ ] Plugin system for custom converters and output formatters
+
+### Phase 3: Advanced Capabilities (Long-term)
+
+- [ ] Password-protected file support (with user-provided password)
+- [ ] PDF-to-Markdown conversion (unified Office + PDF converter)
+- [ ] Semantic document structure detection (TOC generation, section numbering)
+- [ ] Multi-language heading detection improvements
+- [ ] Web API / microservice mode for cloud deployment
+
+### Ideas & Suggestions
+
+Have a feature request? [Open an issue](https://github.com/bnulwh/office-to-markdown-skill/issues) or submit a PR!
+
 ## License
 
 MIT
