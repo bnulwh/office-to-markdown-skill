@@ -138,12 +138,93 @@ convert("input.xlsx", "output.md")
 
 ## 安装
 
-```bash
-# 通过 skills CLI 安装（推荐）
-npx skills add bnulwh/office-to-markdown-skill
+### 通过 skills CLI 安装（推荐）
 
-# 或直接克隆仓库
+[skills CLI](https://github.com/vercel-labs/skills) 支持 70+ AI 编程助手。一次安装，处处可用：
+
+```bash
+# 安装到所有检测到的 agent
+npx skills add bnulwh/office-to-markdown-skill --all
+
+# 或交互式安装（选择 agent）
+npx skills add bnulwh/office-to-markdown-skill
+```
+
+### 指定 Agent 安装
+
+```bash
+# Claude Code
+npx skills add bnulwh/office-to-markdown-skill -a claude-code
+
+# OpenCode
+npx skills add bnulwh/office-to-markdown-skill -a opencode
+
+# Qoder / Qoder CN
+npx skills add bnulwh/office-to-markdown-skill -a qoder
+npx skills add bnulwh/office-to-markdown-skill -a qoder-cn
+
+# OpenClaw
+npx skills add bnulwh/office-to-markdown-skill -a openclaw
+
+# Cursor
+npx skills add bnulwh/office-to-markdown-skill -a cursor
+
+# Codex
+npx skills add bnulwh/office-to-markdown-skill -a codex
+
+# Cline
+npx skills add bnulwh/office-to-markdown-skill -a cline
+
+# Gemini CLI
+npx skills add bnulwh/office-to-markdown-skill -a gemini-cli
+
+# GitHub Copilot
+npx skills add bnulwh/office-to-markdown-skill -a github-copilot
+
+# Windsurf
+npx skills add bnulwh/office-to-markdown-skill -a windsurf
+
+# Trae / Trae CN
+npx skills add bnulwh/office-to-markdown-skill -a trae
+npx skills add bnulwh/office-to-markdown-skill -a trae-cn
+
+# Qwen Code / 通义灵码
+npx skills add bnulwh/office-to-markdown-skill -a qwen-code
+```
+
+### 手动安装
+
+克隆仓库并将技能目录复制或软链接到你的 agent 技能文件夹：
+
+| Agent | 项目级路径 | 全局路径 |
+|-------|-----------|---------|
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| OpenCode | `.agents/skills/` | `~/.config/opencode/skills/` |
+| Qoder | `.qoder/skills/` | `~/.qoder/skills/` |
+| OpenClaw | `skills/` | `~/.openclaw/skills/` |
+| Cursor | `.agents/skills/` | `~/.cursor/skills/` |
+| Codex | `.agents/skills/` | `~/.codex/skills/` |
+| Cline | `.agents/skills/` | `~/.agents/skills/` |
+| Gemini CLI | `.agents/skills/` | `~/.gemini/skills/` |
+| GitHub Copilot | `.agents/skills/` | `~/.copilot/skills/` |
+| Windsurf | `.windsurf/skills/` | `~/.codeium/windsurf/skills/` |
+| Trae | `.trae/skills/` | `~/.trae/skills/` |
+| Qwen Code | `.qwen/skills/` | `~/.qwen/skills/` |
+
+```bash
+# 示例：全局安装到 Claude Code
 git clone https://github.com/bnulwh/office-to-markdown-skill.git
+ln -s $(pwd)/office-to-markdown-skill ~/.claude/skills/office-to-markdown
+
+# 示例：项目级安装到 OpenCode
+mkdir -p .agents/skills
+ln -s /path/to/office-to-markdown-skill .agents/skills/office-to-markdown
+```
+
+### 安装依赖
+
+```bash
+pip install python-pptx python-docx openpyxl
 ```
 
 ## 环境要求

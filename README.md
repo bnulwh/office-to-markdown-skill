@@ -140,12 +140,93 @@ Each worksheet becomes a `##` section with an HTML table:
 
 ## Install
 
-```bash
-# Via skills CLI (recommended)
-npx skills add bnulwh/office-to-markdown-skill
+### Via skills CLI (Recommended)
 
-# Or clone and use directly
+The [skills CLI](https://github.com/vercel-labs/skills) supports 70+ AI coding agents. Install once, use everywhere:
+
+```bash
+# Install to all detected agents
+npx skills add bnulwh/office-to-markdown-skill --all
+
+# Or install interactively (choose agents)
+npx skills add bnulwh/office-to-markdown-skill
+```
+
+### For Specific Agents
+
+```bash
+# Claude Code
+npx skills add bnulwh/office-to-markdown-skill -a claude-code
+
+# OpenCode
+npx skills add bnulwh/office-to-markdown-skill -a opencode
+
+# Qoder / Qoder CN
+npx skills add bnulwh/office-to-markdown-skill -a qoder
+npx skills add bnulwh/office-to-markdown-skill -a qoder-cn
+
+# OpenClaw
+npx skills add bnulwh/office-to-markdown-skill -a openclaw
+
+# Cursor
+npx skills add bnulwh/office-to-markdown-skill -a cursor
+
+# Codex
+npx skills add bnulwh/office-to-markdown-skill -a codex
+
+# Cline
+npx skills add bnulwh/office-to-markdown-skill -a cline
+
+# Gemini CLI
+npx skills add bnulwh/office-to-markdown-skill -a gemini-cli
+
+# GitHub Copilot
+npx skills add bnulwh/office-to-markdown-skill -a github-copilot
+
+# Windsurf
+npx skills add bnulwh/office-to-markdown-skill -a windsurf
+
+# Trae / Trae CN
+npx skills add bnulwh/office-to-markdown-skill -a trae
+npx skills add bnulwh/office-to-markdown-skill -a trae-cn
+
+# Qwen Code
+npx skills add bnulwh/office-to-markdown-skill -a qwen-code
+```
+
+### Manual Installation
+
+Clone the repository and copy/symlink the skill directory to your agent's skills folder:
+
+| Agent | Project Path | Global Path |
+|-------|--------------|-------------|
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| OpenCode | `.agents/skills/` | `~/.config/opencode/skills/` |
+| Qoder | `.qoder/skills/` | `~/.qoder/skills/` |
+| OpenClaw | `skills/` | `~/.openclaw/skills/` |
+| Cursor | `.agents/skills/` | `~/.cursor/skills/` |
+| Codex | `.agents/skills/` | `~/.codex/skills/` |
+| Cline | `.agents/skills/` | `~/.agents/skills/` |
+| Gemini CLI | `.agents/skills/` | `~/.gemini/skills/` |
+| GitHub Copilot | `.agents/skills/` | `~/.copilot/skills/` |
+| Windsurf | `.windsurf/skills/` | `~/.codeium/windsurf/skills/` |
+| Trae | `.trae/skills/` | `~/.trae/skills/` |
+| Qwen Code | `.qwen/skills/` | `~/.qwen/skills/` |
+
+```bash
+# Example: install to Claude Code globally
 git clone https://github.com/bnulwh/office-to-markdown-skill.git
+ln -s $(pwd)/office-to-markdown-skill ~/.claude/skills/office-to-markdown
+
+# Example: install to OpenCode project-level
+mkdir -p .agents/skills
+ln -s /path/to/office-to-markdown-skill .agents/skills/office-to-markdown
+```
+
+### Install Dependencies
+
+```bash
+pip install python-pptx python-docx openpyxl
 ```
 
 ## Requirements
