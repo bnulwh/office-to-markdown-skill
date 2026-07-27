@@ -43,10 +43,10 @@ Scripts are at `scripts/` relative to this skill's directory.
 
 ```bash
 # Install via skills CLI (recommended)
-npx skills add bnulwh/office-to-markdown-skill
+npx skills add bnulwh/office-to-md
 
 # Or clone the repository
-git clone https://github.com/bnulwh/office-to-markdown-skill.git
+git clone https://github.com/bnulwh/office-to-md.git
 
 # Install Python dependencies
 pip install python-pptx python-docx openpyxl

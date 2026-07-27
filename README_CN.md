@@ -1,6 +1,6 @@
 # Office 转 Markdown
 
-[![skills.sh](https://skills.sh/b/bnulwh/office-to-markdown-skill)](https://skills.sh/bnulwh/office-to-markdown-skill)
+[![skills.sh](https://skills.sh/b/bnulwh/office-to-md)](https://skills.sh/bnulwh/office-to-md)
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
@@ -144,52 +144,52 @@ convert("input.xlsx", "output.md")
 
 ```bash
 # 安装到所有检测到的 agent
-npx skills add bnulwh/office-to-markdown-skill --all
+npx skills add bnulwh/office-to-md --all
 
 # 或交互式安装（选择 agent）
-npx skills add bnulwh/office-to-markdown-skill
+npx skills add bnulwh/office-to-md
 ```
 
 ### 指定 Agent 安装
 
 ```bash
 # Claude Code
-npx skills add bnulwh/office-to-markdown-skill -a claude-code
+npx skills add bnulwh/office-to-md -a claude-code
 
 # OpenCode
-npx skills add bnulwh/office-to-markdown-skill -a opencode
+npx skills add bnulwh/office-to-md -a opencode
 
 # Qoder / Qoder CN
-npx skills add bnulwh/office-to-markdown-skill -a qoder
-npx skills add bnulwh/office-to-markdown-skill -a qoder-cn
+npx skills add bnulwh/office-to-md -a qoder
+npx skills add bnulwh/office-to-md -a qoder-cn
 
 # OpenClaw
-npx skills add bnulwh/office-to-markdown-skill -a openclaw
+npx skills add bnulwh/office-to-md -a openclaw
 
 # Cursor
-npx skills add bnulwh/office-to-markdown-skill -a cursor
+npx skills add bnulwh/office-to-md -a cursor
 
 # Codex
-npx skills add bnulwh/office-to-markdown-skill -a codex
+npx skills add bnulwh/office-to-md -a codex
 
 # Cline
-npx skills add bnulwh/office-to-markdown-skill -a cline
+npx skills add bnulwh/office-to-md -a cline
 
 # Gemini CLI
-npx skills add bnulwh/office-to-markdown-skill -a gemini-cli
+npx skills add bnulwh/office-to-md -a gemini-cli
 
 # GitHub Copilot
-npx skills add bnulwh/office-to-markdown-skill -a github-copilot
+npx skills add bnulwh/office-to-md -a github-copilot
 
 # Windsurf
-npx skills add bnulwh/office-to-markdown-skill -a windsurf
+npx skills add bnulwh/office-to-md -a windsurf
 
 # Trae / Trae CN
-npx skills add bnulwh/office-to-markdown-skill -a trae
-npx skills add bnulwh/office-to-markdown-skill -a trae-cn
+npx skills add bnulwh/office-to-md -a trae
+npx skills add bnulwh/office-to-md -a trae-cn
 
 # Qwen Code / 通义灵码
-npx skills add bnulwh/office-to-markdown-skill -a qwen-code
+npx skills add bnulwh/office-to-md -a qwen-code
 ```
 
 ### 手动安装
@@ -213,12 +213,12 @@ npx skills add bnulwh/office-to-markdown-skill -a qwen-code
 
 ```bash
 # 示例：全局安装到 Claude Code
-git clone https://github.com/bnulwh/office-to-markdown-skill.git
-ln -s $(pwd)/office-to-markdown-skill ~/.claude/skills/office-to-markdown
+git clone https://github.com/bnulwh/office-to-md.git
+ln -s $(pwd)/office-to-md ~/.claude/skills/office-to-markdown
 
 # 示例：项目级安装到 OpenCode
 mkdir -p .agents/skills
-ln -s /path/to/office-to-markdown-skill .agents/skills/office-to-markdown
+ln -s /path/to/office-to-md .agents/skills/office-to-markdown
 ```
 
 ### 安装依赖
@@ -269,7 +269,7 @@ pip install python-pptx python-docx openpyxl
 
 ### 想法与建议
 
-有功能需求？[提交 Issue](https://github.com/bnulwh/office-to-markdown-skill/issues) 或欢迎 PR！
+有功能需求？[提交 Issue](https://github.com/bnulwh/office-to-md/issues) 或欢迎 PR！
 
 ## 许可证
 

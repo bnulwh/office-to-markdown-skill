@@ -1,6 +1,6 @@
 # Office to Markdown
 
-[![skills.sh](https://skills.sh/b/bnulwh/office-to-markdown-skill)](https://skills.sh/bnulwh/office-to-markdown-skill)
+[![skills.sh](https://skills.sh/b/bnulwh/office-to-md)](https://skills.sh/bnulwh/office-to-md)
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
@@ -146,52 +146,52 @@ The [skills CLI](https://github.com/vercel-labs/skills) supports 70+ AI coding a
 
 ```bash
 # Install to all detected agents
-npx skills add bnulwh/office-to-markdown-skill --all
+npx skills add bnulwh/office-to-md --all
 
 # Or install interactively (choose agents)
-npx skills add bnulwh/office-to-markdown-skill
+npx skills add bnulwh/office-to-md
 ```
 
 ### For Specific Agents
 
 ```bash
 # Claude Code
-npx skills add bnulwh/office-to-markdown-skill -a claude-code
+npx skills add bnulwh/office-to-md -a claude-code
 
 # OpenCode
-npx skills add bnulwh/office-to-markdown-skill -a opencode
+npx skills add bnulwh/office-to-md -a opencode
 
 # Qoder / Qoder CN
-npx skills add bnulwh/office-to-markdown-skill -a qoder
-npx skills add bnulwh/office-to-markdown-skill -a qoder-cn
+npx skills add bnulwh/office-to-md -a qoder
+npx skills add bnulwh/office-to-md -a qoder-cn
 
 # OpenClaw
-npx skills add bnulwh/office-to-markdown-skill -a openclaw
+npx skills add bnulwh/office-to-md -a openclaw
 
 # Cursor
-npx skills add bnulwh/office-to-markdown-skill -a cursor
+npx skills add bnulwh/office-to-md -a cursor
 
 # Codex
-npx skills add bnulwh/office-to-markdown-skill -a codex
+npx skills add bnulwh/office-to-md -a codex
 
 # Cline
-npx skills add bnulwh/office-to-markdown-skill -a cline
+npx skills add bnulwh/office-to-md -a cline
 
 # Gemini CLI
-npx skills add bnulwh/office-to-markdown-skill -a gemini-cli
+npx skills add bnulwh/office-to-md -a gemini-cli
 
 # GitHub Copilot
-npx skills add bnulwh/office-to-markdown-skill -a github-copilot
+npx skills add bnulwh/office-to-md -a github-copilot
 
 # Windsurf
-npx skills add bnulwh/office-to-markdown-skill -a windsurf
+npx skills add bnulwh/office-to-md -a windsurf
 
 # Trae / Trae CN
-npx skills add bnulwh/office-to-markdown-skill -a trae
-npx skills add bnulwh/office-to-markdown-skill -a trae-cn
+npx skills add bnulwh/office-to-md -a trae
+npx skills add bnulwh/office-to-md -a trae-cn
 
 # Qwen Code
-npx skills add bnulwh/office-to-markdown-skill -a qwen-code
+npx skills add bnulwh/office-to-md -a qwen-code
 ```
 
 ### Manual Installation
@@ -215,12 +215,12 @@ Clone the repository and copy/symlink the skill directory to your agent's skills
 
 ```bash
 # Example: install to Claude Code globally
-git clone https://github.com/bnulwh/office-to-markdown-skill.git
-ln -s $(pwd)/office-to-markdown-skill ~/.claude/skills/office-to-markdown
+git clone https://github.com/bnulwh/office-to-md.git
+ln -s $(pwd)/office-to-md ~/.claude/skills/office-to-markdown
 
 # Example: install to OpenCode project-level
 mkdir -p .agents/skills
-ln -s /path/to/office-to-markdown-skill .agents/skills/office-to-markdown
+ln -s /path/to/office-to-md .agents/skills/office-to-markdown
 ```
 
 ### Install Dependencies
@@ -271,7 +271,7 @@ pip install python-pptx python-docx openpyxl
 
 ### Ideas & Suggestions
 
-Have a feature request? [Open an issue](https://github.com/bnulwh/office-to-markdown-skill/issues) or submit a PR!
+Have a feature request? [Open an issue](https://github.com/bnulwh/office-to-md/issues) or submit a PR!
 
 ## License
 
